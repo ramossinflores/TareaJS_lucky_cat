@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap');
+@font-face {
+    font-family: yozakura;
+    src: url(YOZAKURA-Regular.otf);
+}
+body{
+    background-image: url(bg.jpg);
+}
+
+h1{
+    text-align: center;
+    font-family: yozakura, serif;
+    font-size: 8em;
+    color: darkgoldenrod;
+    margin: 0;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 180px 150px;
+    row-gap: 10px;
+    column-gap: 15px;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: darkgoldenrod;
+
+
+}
+.grid-container label{
+    text-align: right;
+}
+
+img{
+    width: 250px;
+    cursor: pointer;
+}
+
+p{
+    margin-left: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: darkgoldenrod;
+    text-align: center;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 25px;
+
+
+}
+
+h2{
+    text-align: center;
+}
+
+.winner{
+    display: flex;
+    flex-flow: column;
+    place-items: center;
+    color: darkgoldenrod;
+    font-family: 'Montserrat', sans-serif;
+
+
+}
+input{
+    appearance: none;
+    border: none;
+    background-color: rgba(184, 135, 11, 0.525);
+    padding: 2px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: rgb(231, 211, 215);
+    font-size: 1.2em;
+}
