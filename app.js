@@ -1,100 +1,42 @@
-/* var coche={
-    marca:"",
-    modelo:"",
-    color:"",
-    getmarca: function(){
-        var marca;
-        marca=this.marca;
-        return marca;
-    },
-    getcolor: function(){
-        var color;
-        color=this.color;
-        return color;
-    },
-    getmodelo: function(){
-        var modelo;
-        modelo=this.modelo;
-        return modelo;
-    },
-    setmarca: function(marca){
-        this.marca=marca;
-    },
-    setcolor: function(color){
-        this.marca=color;
-    },
-    setmodelo: function(modelo){
-        this.marca=modelo;
-    },
-    constructor: function(modelo,marca,color){
-        this.modelo=modelo;
-        this.color=color;
-        this.marca=marca;
-        return this;
-    }
-};
-
-var coche1= new coche();
-var coche2=new coche();
-coche1=coche.constructor("Clio","Renault","dorado");
-coche2=coche.constructor("Camaro","Chevrolet","amarillo");
-function mostrarcoche(coche){
-    var marca=coche.marca;
-    var modelo=coche.modelo;
-    var color=coche.color;
-    alert(marca+modelo+color);
-}
-mostrarcoche(coche1);
-var coches=[coche1.getmodelo(),coche2.getmodelo()];
- */
-/* var alumnos = ["Paco García", "Laura Ramos", "Carlota Zanahoria", "Andrés Lechuga", "Pablo Berenjena", "José Pepino", "David Melones", "Daniel Manzano", "Jesús Naranja", "Antonio Pera", "Noah Limón"];
-var busqueda = alumnos.filter(alumno => alumno.length < 4 );
- */
     let arrayParticipantes=[];
     let winner;
+    let participantCount = 0;
+
+    document.getElementById("add-participant-btn").addEventListener("click", function() {
+        participantCount++; // Suma 1 participante cada clic
+        const participantsContainer = document.getElementById("participants-container"); 
+    
+        const label = document.createElement("label"); // Creo el elemento label
+        label.setAttribute("for", `participante${participantCount}`);  // Construyo el atributo for con el número del participante 
+        label.textContent = `Participante ${participantCount}`; // Contenido de texto de mi etiqueta
+    
+        const input = document.createElement("input"); // Creo un input
+        input.setAttribute("type", "text"); // tipo texto
+        input.setAttribute("name", `participante${participantCount}`);  // nombre de acuerdo con el label
+        input.setAttribute("id", `participante${participantCount}`); // ídem id
+
+    // Agrego label e input a mi participants-container en el DOM con cada clic
+        participantsContainer.appendChild(label); 
+        participantsContainer.appendChild(input);
+    });    
 
 function sorteo(){
-    p1=document.getElementById("participante1").value;
-    if(p1!=""){
-    arrayParticipantes.push(p1);
-    }
-    p2=document.getElementById("participante2").value;
-    if (p2!=""){
-        arrayParticipantes.push(p2);
-    }    
-    p3=document.getElementById("participante3").value;
-    if (p3!=""){
-        arrayParticipantes.push(p3);
-    }
-    p4=document.getElementById("participante4").value;
-    if (p4!=""){
-        arrayParticipantes.push(p4);
-    }
-    p5=document.getElementById("participante5").value;
-    if (p5!=""){
-        arrayParticipantes.push(p5);
-    }
-    p6=document.getElementById("participante6").value;
-    if (p6!=""){
-        arrayParticipantes.push(p6);
-    }
-    p7=document.getElementById("participante7").value;
-    if (p7!=""){
-        arrayParticipantes.push(p7);
-    }
-    p8=document.getElementById("participante8").value;
-    if (p8!=""){
-        arrayParticipantes.push(p8);
-    }
-    p9=document.getElementById("participante9").value;
-    if (p9!=""){
-        arrayParticipantes.push(p9);
-    }
-    p10=document.getElementById("participante10").value;
-    if (p10!=""){
-        arrayParticipantes.push(p10);
-    }
-    winner=arrayParticipantes[Math.floor(Math.random()*arrayParticipantes.length)];
-    document.getElementById("winner").innerHTML=(`El elegido es ${winner}`);
+    arrayParticipantes = []; // Reinicia el array para cada sorteo
 
+    const inputs = document.querySelectorAll("input[type='text']"); // Selecciona todos mis inputs y los guarda en un arrreglo
+    inputs.forEach(input => { // Para cada input en mi arreglo
+        const value = input.value.trim(); // corto los espaciados derecha e izquierda
+        if (value !== "") { // me aseguro de que no está vacío
+            arrayParticipantes.push(value); // agrego al final dl arreglo
+        }
+    });
+
+    if (arrayParticipantes.length > 1) { // Deben haber mínimo dos participantes
+        winner = arrayParticipantes[Math.floor(Math.random() * arrayParticipantes.length)]; 
+        /* El index es el resultado de redondear hacia el entero más cercano, 
+        el valor de */
+        document.getElementById("winner").innerHTML = `El elegido es ${winner}`;
+    } else {
+        document.getElementById("winner").innerHTML = `Debe haber al menos un par de participantes.`;
+    }
 }

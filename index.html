@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" type="text/css">
-    <script src="app.js"></script>
     <title>Sorteo</title>
 </head>
 <body>
@@ -13,34 +12,18 @@
     <h1>Sorteo</h1>
     <p>Introduzca el nombre de los participantes:</p>
     <form action="" method="post">
-        <div class="grid-container">
-        <label for="participante1">Participante 1</label>
-        <input type="text" name="participante1" id="participante1">
-        <label for="participante2">Participante 2</label>
-        <input type="text" name="participante2" id="participante2">
-        <label for="participante3">Participante 3</label>
-        <input type="text" name="participante3" id="participante3">
-        <label for="participante4">Participante 4</label>
-        <input type="text" name="participante4" id="participante4">
-        <label for="participante5">Participante 5</label>
-        <input type="text" name="participante5" id="participante5">
-        <label for="participante6">Participante 6</label>
-        <input type="text" name="participante6" id="participante6">
-        <label for="participante7">Participante 7</label>
-        <input type="text" name="participante7" id="participante7">
-        <label for="participante8">Participante 8</label>
-        <input type="text" name="participante8" id="participante8">
-        <label for="participante9">Participante 9</label>
-        <input type="text" name="participante9" id="participante9"> 
-        <label for="participante10">Participante 10</label>
-        <input type="text" name="participante10" id="participante10">
-    </div>
+        <div class="grid-container" id="participants-container">
+        </div>
+    <div class="add-participant-btn-container">
+        <button type="button" id="add-participant-btn">Agregar Participante</button>    
+    </div>    
         <p>Pulsa el gato de la suerte para conocer el elegido:</p>
         <div class="winner">
         <img src="gato-chino-de-la-suerte.png" onclick="sorteo()" alt="" >
         <h2 id="winner"></h2>
         </div>       
     </form>
+    <script src="app.js"></script>
     
 </div>
 </body>
